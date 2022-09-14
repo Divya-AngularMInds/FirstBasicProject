@@ -1,1 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    /* background-color: #83c5be; */
+    background: fixed;
+    background-image:  -moz-linear-gradient(#83c5be,#023047);
+    
+}

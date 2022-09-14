@@ -1,0 +1,89 @@
+<body>
+  <nav><h1>Cart</h1></nav>
+  <div style="color: black">
+    <h2>Total Items in Cart: {{ cartLength }}</h2>
+    <ng-container *ngIf="getCart().length == 0"><h4>No Books</h4></ng-container>
+  </div>
+
+  <div *ngIf="getCart().length > 0">
+    <!-- <table class="table">
+        <tr>
+          <th style="width: 33%;">Book</th>
+          <th style="width: 33%;">Description</th>
+          <th style="width: 33%;">Price</th>
+        </tr>
+    </table> -->
+    <div *ngFor="let books of book; index as i">
+      <!-- <ul style="list-style: none">
+      <li>
+        <div>
+          <div id="text">
+            <img
+              [src]="books.singleBook.image"
+              [alt]="books.singleBook.name"
+              width="100"
+            />
+            <p>{{ books.singleBook.name }} by {{ books.singleBook.author }}</p>
+            <p>{{ books.singleBook.price | currency: "INR" }}</p>
+          </div>
+          <div>
+            <button (click)="remove(i)" class="btn">Remove from cart</button>
+          </div>
+        </div>
+      </li>
+    </ul> -->
+      <table class="table">
+        <tr>
+          <td>
+            <img
+              [src]="books.singleBook.image"
+              [alt]="books.singleBook.name"
+              width="100"
+            />
+          </td>
+          <td style="width: 40%">
+            <h4 style="text-align: left">
+              '<b>{{ books.singleBook.name }}'</b> by
+              {{ books.singleBook.author }}
+            </h4>
+          </td>
+          <td>
+            <h4>X {{ book[i].count }}</h4>
+          </td>
+          <td>
+            <h4>{{ books.singleBook.price | currency: "INR" }}</h4>
+          </td>
+          <td>
+            <div>
+              <button (click)="remove(i, books)" class="btn">
+                Remove from cart
+              </button>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="footer">
+    <div></div>
+    <h3 style="text-align: right; color: black; margin-right: 180px">
+      <b>Total Checkout Price {{ totalValue | currency: "INR" }}</b>
+    </h3>
+    <div style="margin-right: 188px">
+      <button *ngIf="cartLength != 0" class="btn">Buy Now</button>
+    </div>
+  </div>
+  <!-- <table id="checkout">
+    <tr>
+      <td style="width: 60%;">
+        <h3 style="text-align: right; color: black;">
+          <b>Total Checkout Price {{ totalValue | currency: "INR" }}</b>
+        </h3>
+      </td>
+      <td style="width: 40%;"><button *ngIf="cartLength != 0" class="btn">Buy Now</button></td>
+    </tr>
+  </table> -->
+  <div id="backbtn" style="color: black">
+    <button routerLink="/books" routerLinkActive="active">Go Back</button>
+  </div>
+</body>

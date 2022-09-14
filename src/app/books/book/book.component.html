@@ -1,0 +1,23 @@
+<!-- import {Book} from '../interfaces/interface'; -->
+<div class="card">
+  
+    <img [src]="book.singleBook.image" [alt]="book.singleBook.name" width="100" (click)="show()"/>
+    <h5><b>{{ book.singleBook.name | titlecase }}</b></h5>
+    <h4>{{ book.singleBook.price | currency: "INR" }}</h4>
+    <button *ngIf="!isInCart" (click)="addToCart(book.singleBook.price)" (childEvent)="$event" class="btn">
+      Add to cart
+    </button>
+    <button *ngIf="isInCart" (click)="removeFromCart(book.singleBook.price)" (childEvent)="$event" class="btn">
+      -
+    </button>
+    <button *ngIf="isInCart" class="btn">
+      {{total}}
+    </button>
+    <button *ngIf="isInCart" (click)="addToCart(book.singleBook.price)" (childEvent)="$event" class="btn">
+      +
+    </button>
+    <!-- <button *ngIf="isInCart" (click)="removeFromCart(book.singleBook.price)" (childEvent)="$event" class="btn">
+      Remove from cart
+    </button> -->
+  
+</div>

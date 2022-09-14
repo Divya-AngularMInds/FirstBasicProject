@@ -1,0 +1,27 @@
+<nav class="top">
+  <div>
+    <h1>Book Shop</h1>
+  </div>
+  <div>
+    <button id="myCartbtn" routerLink="/cart" routerLinkActive="active">
+      <i class="glyphicon glyphicon-shopping-cart"></i> {{ this.cartLength }}
+    </button>
+  </div>
+</nav>
+<!-- <app-books class="books"></app-books> -->
+<div class="header">
+  <h2 style="display: inline-block; margin-left: 20px;">Book List</h2>
+  <button (click)="isShowing = !isShowing" type="button" class="btn">
+    <ng-container *ngIf="!isShowing">Show Books</ng-container>
+    <ng-container *ngIf="isShowing">Hide Books</ng-container>
+  </button> 
+</div>
+<ul *ngIf="isShowing">
+  <ng-container *ngFor="let singleBook of books; let i = index">
+    <app-book
+      [book]="{singleBook}"
+      class="book"
+      (childEvent)="cartLength = $event"
+    ></app-book>
+  </ng-container>
+</ul>
