@@ -1,10 +1,23 @@
 <nav class="top">
   <div>
     <button id="myCartbtn" routerLink="/books" routerLinkActive="active">
-       <h2>< Back</h2>
+      <h2>Back</h2>
     </button>
   </div>
 </nav>
-<div class="flex"><div><img [src]="book.singleBook.image" [alt]="book.singleBook.name" class="image" /></div>
-   <div><p>{{ book.singleBook.name | titlecase }} by {{ book.singleBook.author | titlecase }}</p>
-    <p>{{ book.singleBook.price | currency: "INR" }}</p></div></div> 
+<div class="flex">
+  <div>
+    <img
+      [src]="book.singleBook.image"
+      [alt]="book.singleBook.name"
+      class="image"
+    />
+  </div>
+  <div>
+    <h4>
+      {{ book.singleBook.name | titlecase }} by
+      {{ book.singleBook.author | titlecase }}
+    </h4>
+    <p>{{ book.singleBook.price | currency: "INR" }}</p>
+  </div>
+</div>
