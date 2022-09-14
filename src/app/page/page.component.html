@@ -15,7 +15,7 @@
   </div>
   <div>
     <h4>
-      {{ book.singleBook.name | titlecase }} by
+      '{{ book.singleBook.name | titlecase }}' by
       {{ book.singleBook.author | titlecase }}
     </h4>
     <h4>{{ book.singleBook.price | currency: "INR" }}</h4>
