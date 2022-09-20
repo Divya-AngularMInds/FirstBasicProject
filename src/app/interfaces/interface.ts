@@ -3,4 +3,5 @@ export interface Book{
     author: string;
     price: number;
   image: string;
+  openSpot: number;
   }

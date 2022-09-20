@@ -11,7 +11,7 @@ import { Book } from '../../interfaces/interface';
 })
 export class BookComponent implements OnInit {
   @Input() book: any = {};
-  @Output() cartValue = new EventEmitter<Book>();
+  // @Output() cartValue = new EventEmitter<Book>();
   @Output() childEvent = new EventEmitter();
   constructor(private cartService: CartService, private ls: BooksService, private route: Router) { }
   isInCart: boolean = false;
